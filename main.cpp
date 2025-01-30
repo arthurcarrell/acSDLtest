@@ -29,8 +29,8 @@ const char PROJECT_Version[] = "1.0"; // project version; self explanatory.
 const char PROJECT_ProjectName[] = "com.asteristired.sdl3_test"; // the internal name of the project, no spaces or special characters.
 const char PROJECT_AppName[] = "SDL3 Test!"; // the name that appears on the window.
 
-const int WINDOW_Width = 640;
-const int WINDOW_Height = 480;
+const int WINDOW_Width = 1280;
+const int WINDOW_Height = 720;
 
 static SDL_Window *window = NULL;
 static SDL_Renderer *renderer = NULL;
@@ -68,7 +68,7 @@ SDL_AppResult SDL_AppInit(void **appstate, int argc, char *argv[]) {
 SDL_AppResult SDL_AppEvent(void *appstate, SDL_Event *event) {
     if (event->type == SDL_EVENT_QUIT) {
         // a key that means quit the program has been pressed. (my example: SUPER+SHIFT+Q)
-        return SDL_APP_SUCCESS; // quit the program, but there were no errors, so report success!
+        return SDL_APP_SUCCESS; // quit the program, but in an intentional way, we are not quitting due to an error.
     }
     return SDL_APP_CONTINUE; // key was not a quit key, ignore and continue.
 }
@@ -101,7 +101,7 @@ SDL_AppResult SDL_AppIterate(void *appstate) {
 
 }
 
-/* this function runs on shutdown */
+/* Runs on shutdown */
 void SDL_AppQuit(void *appstate, SDL_AppResult result) {
     /* SDL cleans up window/renderer */
 }
